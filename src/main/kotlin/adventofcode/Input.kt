@@ -1,11 +1,16 @@
 package adventofcode
 
+import org.jooq.lambda.Seq
 import java.util.Scanner
 
 class Input(private val glue: Class<*>) : Iterable<String> {
 
 
     override fun iterator(): Iterator<String> = InputIterator(glue)
+
+    fun toList(): List<String> {
+        return Seq.seq(this).toList()
+    }
 
     private class InputIterator(private val glue: Class<*>) : Iterator<String> {
 
