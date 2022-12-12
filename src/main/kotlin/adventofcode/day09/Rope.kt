@@ -1,5 +1,7 @@
 package adventofcode.day09
 
+import adventofcode.Point
+
 class Rope(size: Int) {
 
     val segments: Array<Point>
@@ -10,11 +12,13 @@ class Rope(size: Int) {
         }
     }
 
-    val tail: Point get() {
+    val tail: Point
+        get() {
         return segments.last()
     }
 
-    val head: Point get() {
+    val head: Point
+        get() {
         return segments.first()
     }
 

@@ -1,5 +1,6 @@
 package adventofcode.day09
 
+import adventofcode.Point
 import java.lang.Appendable
 import java.util.*
 import kotlin.collections.HashSet

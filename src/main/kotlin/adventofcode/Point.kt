@@ -1,4 +1,4 @@
-package adventofcode.day09
+package adventofcode
 
 import org.jooq.lambda.Seq
 import kotlin.math.abs

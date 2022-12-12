@@ -1,5 +1,7 @@
 package adventofcode.day09
 
+import adventofcode.Point
+
 enum class Direction(val increment: Point) {
 
     U(Point(0, 1)),
