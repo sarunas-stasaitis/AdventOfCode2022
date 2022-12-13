@@ -9,7 +9,11 @@ class Input(private val glue: Class<*>) : Iterable<String> {
     override fun iterator(): Iterator<String> = InputIterator(glue)
 
     fun toList(): List<String> {
-        return Seq.seq(this).toList()
+        return seq().toList()
+    }
+
+    fun seq(): Seq<String> {
+        return Seq.seq(this)
     }
 
     private class InputIterator(private val glue: Class<*>) : Iterator<String> {
