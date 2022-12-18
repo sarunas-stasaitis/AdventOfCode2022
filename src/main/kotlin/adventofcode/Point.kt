@@ -13,7 +13,7 @@ data class Point(val x: Int, val y: Int) {
         return abs(x - other.x) <= 1 && abs(y - other.y) <= 1
     }
 
-    fun distance(other: Point) : Double {
+    fun distance(other: Point): Double {
         return sqrt((x - other.x).toDouble().pow(2) + (y - other.y).toDouble().pow(2))
     }
 
@@ -29,6 +29,26 @@ data class Point(val x: Int, val y: Int) {
             other + Point(0, -1)
         ).minBy { pt -> pt.distance(this) }
             .get()
+    }
+
+    fun getSurrounding8Points(): List<Point> {
+        val points = ArrayList<Point>(8)
+
+        points.add(Point(x - 1, y - 1))
+        points.add(Point(x, y - 1))
+        points.add(Point(x + 1, y - 1))
+        points.add(Point(x - 1, y))
+//    points.add(Point(x, y))
+        points.add(Point(x + 1, y))
+        points.add(Point(x - 1, y + 1))
+        points.add(Point(x, y + 1))
+        points.add(Point(x + 1, y + 1))
+
+        return points
+    }
+
+    fun plus(x: Int, y: Int): Point {
+        return Point(this.x + x, this.y + y)
     }
 
     operator fun plus(other: Point): Point {
