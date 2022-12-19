@@ -5,7 +5,7 @@ import kotlin.math.abs
 import kotlin.math.pow
 import kotlin.math.sqrt
 
-data class Point(val x: Int, val y: Int) {
+data class Point(val x: Int, val y: Int) : Comparable<Point> {
 
     constructor() : this(0, 0)
 
@@ -15,6 +15,10 @@ data class Point(val x: Int, val y: Int) {
 
     fun distance(other: Point): Double {
         return sqrt((x - other.x).toDouble().pow(2) + (y - other.y).toDouble().pow(2))
+    }
+
+    fun manhattanDistance(other: Point): Int {
+        return abs(x - other.x) + abs(y - other.y)
     }
 
     fun closestPoint(other: Point): Point {
@@ -53,6 +57,14 @@ data class Point(val x: Int, val y: Int) {
 
     operator fun plus(other: Point): Point {
         return Point(x + other.x, y + other.y)
+    }
+
+    override fun compareTo(other: Point): Int {
+        return if (y != other.y) {
+            y.compareTo(other.y)
+        } else {
+            x.compareTo(other.x)
+        }
     }
 
 }
